@@ -1,0 +1,4 @@
+export const ADD_TO_CART= "ADD_TO_CART";
+export const DEL_CART_ITEM= "DEL_CART_ITEM";
+export const SEARCH_DATA= "SEARCH_DATA";
+export const CLEAR_SEARCH_DATA= "CLEAR_SEARCH_DATA";
