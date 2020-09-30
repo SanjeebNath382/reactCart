@@ -9,56 +9,36 @@ import { AddToCart } from '../store/actions/actions'
     onClickHand=(id,name,price)=>{
         if(this.props.addedIds.includes(id)){
             alert(`${name} has already been added to cart`)
-            
         }
         else{
-         this.props.AddToCart(id,name,price)
+           this.props.AddToCart(id,name,price)
         }
-        
-         
-         
-        
-         
- 
-      }
+
+   }
     render() {
         return (
             <>
-            
-            <div>
+            <div style={{padding:'5%'}}>
                 {
                     this.props.searched.map(item=>{
                         return(
                             <div  className="card-columns" id={item.id} >
-              
-            
- 
-              <div className="card" style={{width: "18rem"}}>
-           <img src={image} className="card-img-top" alt="Photo of a girl"></img>
+                               <div className="card" style={{width: "18rem"}}>
+                                  <img src={image} className="card-img-top" alt="Photo of a girl"></img>
+                                   <div className="card-body">
+                                       <h3 className="card-title" >{item.name}</h3>
+                                       <h4 className="card-title">Price:{item.price}</h4>
+                                       <h6 className="card-title">Company:{item.company}</h6>
+                                       <button className="btn btn-primary" ref={btnReview  => {this.btnReview = btnReview;}} onClick={()=>{this.onClickHand(item.id,item.name,item.price)}}>Add To cart </button>
         
-            <div className="card-body">
-           <h3 className="card-title" >{item.name}</h3>
-           <h4 className="card-title">Price:{item.price}</h4>
-           <h6 className="card-title">Company:{item.company}</h6>
-           <button className="btn btn-primary" ref={btnReview  => {this.btnReview = btnReview;}} onClick={()=>{this.onClickHand(item.id,item.name,item.price)}}>Add To cart </button>
-        
-       </div>
-       </div>
-       
-       
-       </div>
-                            
-                        )
+                                   </div>
+                              </div>
+                           </div>
+                       )
                     })
                 }
-                
-               
             </div>
-           
-            
-            
-                
-            </>
+          </>
         )
     }
 }
